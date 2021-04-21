@@ -1,1 +1,2 @@
-module.exports.authMiddleware = require("./authMiddleware");
+module.exports.authMiddlewares = require("./authMiddlewares");
+module.exports.userMiddlewares = require("./userMiddlewares");

@@ -1,16 +1,16 @@
 const router = require("express").Router();
 
 const { authControllers } = require("../controllers");
-const { authMiddleware } = require("../middlewares");
+const { authMiddlewares } = require("../middlewares");
 
 router.post(
   "/",
-  authMiddleware.checkIsUserPresentMiddleware,
+  authMiddlewares.checkIsUserPresentMiddleware,
   authControllers.authUser
 );
 router.post(
   "/logout",
-  authMiddleware.checkAccessTokenMiddleware,
+  authMiddlewares.checkAccessTokenMiddleware,
   authControllers.logoutUser
 );
 

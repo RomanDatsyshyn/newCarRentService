@@ -1,19 +1,26 @@
 const router = require("express").Router();
 
 const { userControllers } = require("../controllers");
-const { authMiddleware } = require("../middlewares");
+const { authMiddlewares, userMiddlewares } = require("../middlewares");
 
 router.post(
   "/",
-  authMiddleware.checkIsUserDataNotEmptyMiddleware,
-  authMiddleware.checkIsPhoneUniqueMiddleware,
+  authMiddlewares.checkIsUserDataNotEmptyMiddleware,
+  authMiddlewares.checkIsPhoneUniqueMiddleware,
   userControllers.createUser
 );
 router.get(
   "/",
-  authMiddleware.checkAccessTokenMiddleware,
-  authMiddleware.getUserFromToken,
+  authMiddlewares.checkAccessTokenMiddleware,
+  authMiddlewares.getUserFromToken,
   userControllers.getUser
+);
+router.put(
+  "/edit",
+  authMiddlewares.checkAccessTokenMiddleware,
+  authMiddlewares.getUserFromToken,
+  userMiddlewares.checkIsPasswordNotEmptyMiddleware,
+  userControllers.changePassword
 );
 
 module.exports = router;
