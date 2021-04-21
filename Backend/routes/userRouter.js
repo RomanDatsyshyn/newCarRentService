@@ -11,16 +11,22 @@ router.post(
 );
 router.get(
   "/",
-  authMiddlewares.checkAccessTokenMiddleware,
-  authMiddlewares.getUserFromToken,
+  userMiddlewares.checkAccessTokenMiddleware,
+  userMiddlewares.getUserFromToken,
   userControllers.getUser
 );
 router.put(
   "/edit",
-  authMiddlewares.checkAccessTokenMiddleware,
-  authMiddlewares.getUserFromToken,
+  userMiddlewares.checkAccessTokenMiddleware,
+  userMiddlewares.getUserFromToken,
   userMiddlewares.checkIsPasswordNotEmptyMiddleware,
   userControllers.changePassword
+);
+router.delete(
+  "/delete",
+  userMiddlewares.checkAccessTokenMiddleware,
+  userMiddlewares.getUserFromToken,
+  userControllers.deleteUser
 );
 
 module.exports = router;

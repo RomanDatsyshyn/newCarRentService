@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const { authControllers } = require("../controllers");
-const { authMiddlewares } = require("../middlewares");
+const { authMiddlewares, userMiddlewares } = require("../middlewares");
 
 router.post(
   "/",
@@ -10,7 +10,7 @@ router.post(
 );
 router.post(
   "/logout",
-  authMiddlewares.checkAccessTokenMiddleware,
+  userMiddlewares.checkAccessTokenMiddleware,
   authControllers.logoutUser
 );
 
