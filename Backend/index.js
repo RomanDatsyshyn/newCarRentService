@@ -12,9 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 
 global.appRoot = __dirname;
 
-const { userRouter } = require("./routes");
+const { userRouter, authRouter } = require("./routes");
 
 app.use("/user", userRouter);
+app.use("/auth", authRouter);
 
 const server = http.createServer(app);
 

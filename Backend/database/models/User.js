@@ -27,18 +27,18 @@ const userScheme = new Schema({
     type: Number,
     require: false,
   },
-  // cars: [
-  //   {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "cars",
-  //   },
-  // ],
-  // favorite: [
-  //   {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "cars",
-  //   },
-  // ],
+  cars: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "cars",
+    },
+  ],
+  favorite: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "cars",
+    },
+  ],
 });
 
 userScheme.set("toJSON", {
@@ -49,4 +49,4 @@ userScheme.set("toJSON", {
   },
 });
 
-module.exports = mongoose.model("RentCar_users", userScheme);
+module.exports = mongoose.model("rentcar_users", userScheme);

@@ -5,8 +5,8 @@ const { authMiddleware } = require("../middlewares");
 
 router.post(
   "/",
-  authMiddleware.checkIsUserDataNotEmpty,
-  authMiddleware.checkIsPhoneUnique,
+  authMiddleware.checkIsUserDataNotEmptyMiddleware,
+  authMiddleware.checkIsPhoneUniqueMiddleware,
   userControllers.createUser
 );
 
