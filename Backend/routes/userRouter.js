@@ -9,5 +9,11 @@ router.post(
   authMiddleware.checkIsPhoneUniqueMiddleware,
   userControllers.createUser
 );
+router.get(
+  "/",
+  authMiddleware.checkAccessTokenMiddleware,
+  authMiddleware.getUserFromToken,
+  userControllers.getUser
+);
 
 module.exports = router;

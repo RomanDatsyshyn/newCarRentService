@@ -1,3 +1,4 @@
+module.exports.getUserFromToken = require("./getUserFromToken.middleware");
 module.exports.checkAccessTokenMiddleware = require("./checkAccessToken.middleware");
 module.exports.checkIsPhoneUniqueMiddleware = require("./checkIsPhoneUnique.middleware");
 module.exports.checkIsUserPresentMiddleware = require("./checkIsUserPresent.middleware");
