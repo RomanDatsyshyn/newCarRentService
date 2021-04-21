@@ -9,24 +9,16 @@ router.post(
   authMiddlewares.checkIsPhoneUniqueMiddleware,
   userControllers.createUser
 );
-router.get(
-  "/",
-  userMiddlewares.checkAccessTokenMiddleware,
-  userMiddlewares.getUserFromToken,
-  userControllers.getUser
-);
+
+router.use(userMiddlewares.checkAccessTokenMiddleware);
+router.use(userMiddlewares.getUserFromToken);
+
+router.get("/", userControllers.getUser);
 router.put(
   "/edit",
-  userMiddlewares.checkAccessTokenMiddleware,
-  userMiddlewares.getUserFromToken,
   userMiddlewares.checkIsPasswordNotEmptyMiddleware,
   userControllers.changePassword
 );
-router.delete(
-  "/delete",
-  userMiddlewares.checkAccessTokenMiddleware,
-  userMiddlewares.getUserFromToken,
-  userControllers.deleteUser
-);
+router.delete("/delete", userControllers.deleteUser);
 
 module.exports = router;
