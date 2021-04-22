@@ -8,7 +8,7 @@ module.exports = async (req, res, next) => {
     return next(res.status(403).json({ error: "Немає токена" }));
   }
 
-  await tokenVerificator(res, next, token, JWT_METHOD.USER);
+  tokenVerificator(token, JWT_METHOD.ADMIN);
 
   next();
 };
