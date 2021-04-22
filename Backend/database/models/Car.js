@@ -1,31 +1,38 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const userScheme = new Schema({
+const carScheme = new Schema({
+  town: {
+    type: Number,
+    required: true,
+  },
   name: {
     type: String,
-    require: true,
+    required: true,
   },
-  age: {
+  segment: {
     type: Number,
-    require: true,
+    required: true,
   },
-  phone: {
+  year: {
+    type: Number,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  transmission: {
+    type: Number,
+    required: true,
+  },
+  engine: {
     type: String,
-    require: true,
-    unique: true,
+    required: true,
   },
-  password: {
+  carImage: {
     type: String,
-    require: true,
-  },
-  role_id: {
-    type: Number,
-    require: false,
-  },
-  status_id: {
-    type: Number,
-    require: false,
+    required: true,
   },
   orders: [
     {
@@ -35,7 +42,7 @@ const userScheme = new Schema({
   ],
 });
 
-userScheme.set("toJSON", {
+carScheme.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
@@ -43,4 +50,4 @@ userScheme.set("toJSON", {
   },
 });
 
-module.exports = mongoose.model("rentcar_users", userScheme);
+module.exports = mongoose.model("rent_cars", carScheme);
