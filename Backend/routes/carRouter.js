@@ -5,7 +5,12 @@ const { authMiddlewares, carMiddlewares } = require("../middlewares");
 
 router.use(authMiddlewares.checkAdminTokenMiddleware);
 
-router.post("/add", carMiddlewares.checkIsCarDataNotEmptyMiddleware);
-// router.post("/", carControllers.addCar);
+router.use(carMiddlewares.uploadCarImageMiddleware.single("carImage"));
+
+router.post(
+  "/add",
+  carMiddlewares.checkIsCarDataNotEmptyMiddleware,
+  carControllers.addCar
+);
 
 module.exports = router;

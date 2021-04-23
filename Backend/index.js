@@ -13,18 +13,19 @@ app.use(express.urlencoded({ extended: true }));
 global.appRoot = __dirname;
 
 const {
-  adminRouter,
-  userRouter,
-  authRouter,
   carRouter,
+  authRouter,
+  userRouter,
   orderRoutes,
+  adminRouter,
 } = require("./routes");
 
-app.use("/admin", adminRouter);
-app.use("/user", userRouter);
-app.use("/auth", authRouter);
 app.use("/cars", carRouter);
+app.use("/auth", authRouter);
+app.use("/user", userRouter);
+app.use("/admin", adminRouter);
 // app.use("/orders", orderRoutes);
+app.use("/carImage", express.static("carImage"));
 
 const server = http.createServer(app);
 
