@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
       errors: null,
     });
   } catch (e) {
-    res.json({
+    re.status(400).json({
       success: false,
       data: e.controller || "authAdmin",
       errors: e.message,

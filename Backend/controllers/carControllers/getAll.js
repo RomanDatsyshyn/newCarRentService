@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
       errors: null,
     });
   } catch (e) {
-    res.json({
+    res.status(400).json({
       success: false,
       data: e.controller || "getAll",
       errors: e.message,

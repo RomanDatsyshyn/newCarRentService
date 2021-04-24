@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
       res.status(201).end();
     }
   } catch (e) {
-    res.json({
+    res.status(400).json({
       success: false,
       data: e.controller || "AddCar",
       errors: e.message,

@@ -4,6 +4,7 @@ const { carControllers } = require("../controllers");
 const { authMiddlewares, carMiddlewares } = require("../middlewares");
 
 router.get("/", carControllers.getAll);
+router.get("/:id", carControllers.getCarById);
 
 router.use(authMiddlewares.checkAdminTokenMiddleware);
 
