@@ -12,6 +12,27 @@ router.get(
 
 router.use(authMiddlewares.checkAdminTokenMiddleware);
 
+router.put(
+  "/edit/:id/town",
+  carMiddlewares.checkIsCarPresentMiddleware,
+  carMiddlewares.checkIsCarTownNotEmptyMiddleware,
+  carControllers.editCarTown
+);
+
+router.put(
+  "/edit/:id/price",
+  carMiddlewares.checkIsCarPresentMiddleware,
+  carMiddlewares.checkIsCarPriceNotEmptyMiddleware,
+  carControllers.editCarPrice
+);
+
+router.put(
+  "/edit/:id/segment",
+  carMiddlewares.checkIsCarPresentMiddleware,
+  carMiddlewares.checkIsCarSegmentNotEmptyMiddleware,
+  carControllers.editCarSegment
+);
+
 router.delete(
   "/:id/delete",
   carMiddlewares.checkIsCarPresentMiddleware,

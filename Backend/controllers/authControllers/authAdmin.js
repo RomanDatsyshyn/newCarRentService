@@ -20,14 +20,6 @@ module.exports = async (req, res) => {
       });
     }
 
-    if (isUserPresent[0].status_id !== USER_STATUS.ACTIVE) {
-      return res.status(403).json({
-        success: false,
-        data: null,
-        errors: `Акаунт заблокований`,
-      });
-    }
-
     await checkPasswordHash(isUserPresent[0].password, password);
 
     const tokens = tokenizer(JWT_METHOD.ADMIN);
@@ -45,7 +37,7 @@ module.exports = async (req, res) => {
       errors: null,
     });
   } catch (e) {
-    re.status(400).json({
+    res.status(400).json({
       success: false,
       data: e.controller || "authAdmin",
       errors: e.message,
