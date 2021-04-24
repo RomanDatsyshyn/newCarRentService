@@ -9,8 +9,9 @@ module.exports = async (req, res) => {
     res.status(204).end();
   } catch (e) {
     res.json({
-      message: e.message,
-      controller: e.controller || "logoutUser",
+      success: false,
+      data: e.controller || "logoutUser",
+      errors: e.message,
     });
   }
 };

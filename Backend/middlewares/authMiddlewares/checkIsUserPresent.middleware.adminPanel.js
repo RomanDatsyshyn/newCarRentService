@@ -6,7 +6,13 @@ module.exports = async (req, res, next) => {
   const user = await UserModel.findById(user_id);
 
   if (!user) {
-    return next(res.status(404).json({ error: `Немає такого користувача` }));
+    return next(
+      res.status(404).json({
+        success: false,
+        data: null,
+        errors: `Немає такого користувача`,
+      })
+    );
   }
 
   req.user = user;

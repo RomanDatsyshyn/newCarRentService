@@ -13,8 +13,9 @@ module.exports = async (req, res) => {
     res.status(200).end();
   } catch (e) {
     res.json({
-      message: e.message,
-      controller: e.controller || "changePassword",
+      success: false,
+      data: e.controller || "changePassword",
+      errors: e.message,
     });
   }
 };

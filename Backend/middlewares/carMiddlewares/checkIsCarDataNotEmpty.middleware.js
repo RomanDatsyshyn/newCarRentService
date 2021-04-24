@@ -40,7 +40,13 @@ module.exports = (req, res, next) => {
     errors.transmission ||
     errors.engine
   ) {
-    return next(res.status(404).json({ errors: errors, success: false }));
+    return next(
+      res.status(404).json({
+        success: false,
+        data: null,
+        errors: errors,
+      })
+    );
   } else {
     if (town > 3) {
       errors.town = "Введіть коректний номер міста";
@@ -80,7 +86,13 @@ module.exports = (req, res, next) => {
     errors.transmission ||
     errors.engine
   ) {
-    return next(res.status(404).json({ errors: errors, success: false }));
+    return next(
+      res.status(404).json({
+        success: false,
+        data: null,
+        errors: errors,
+      })
+    );
   } else {
     next();
   }

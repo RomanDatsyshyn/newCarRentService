@@ -1,18 +1,18 @@
-const User = require("../../database/models/User");
+const Car = require("../../database/models/Car");
 
 module.exports = async (req, res) => {
   try {
-    const userData = await User.findById(req.user);
+    const cars = await Car.find({});
 
     res.status(200).json({
       success: true,
-      data: userData,
+      data: cars.map((c) => c.toJSON()),
       errors: null,
     });
   } catch (e) {
     res.json({
       success: false,
-      data: e.controller || "getUser",
+      data: e.controller || "getAll",
       errors: e.message,
     });
   }

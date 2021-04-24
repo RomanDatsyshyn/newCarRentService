@@ -13,11 +13,19 @@ module.exports = async (req, res) => {
     });
 
     if (isUserPresent[0] == undefined) {
-      return res.status(404).json({ error: `Такого користувача не існує` });
+      return res.status(404).json({
+        success: false,
+        data: null,
+        errors: `Такого користувача не існує`,
+      });
     }
 
     if (isUserPresent[0].status_id !== USER_STATUS.ACTIVE) {
-      return res.status(403).json({ error: `Ваш акаунт заблокований` });
+      return res.status(403).json({
+        success: false,
+        data: null,
+        errors: `Ваш акаунт заблокований`,
+      });
     }
 
     await checkPasswordHash(isUserPresent[0].password, password);
@@ -31,12 +39,16 @@ module.exports = async (req, res) => {
 
     await newOAuth.save();
 
-    res.json(tokens);
-    res.status(201).end();
+    res.status(200).json({
+      success: true,
+      data: tokens,
+      errors: null,
+    });
   } catch (e) {
     res.json({
-      message: e.message,
-      controller: e.controller || "authUser",
+      success: false,
+      data: e.controller || "authUser",
+      errors: e.message,
     });
   }
 };

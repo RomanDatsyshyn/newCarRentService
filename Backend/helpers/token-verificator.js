@@ -7,9 +7,11 @@ module.exports = (res, next, token, method) => {
     jwt.verify(token, JWT_SECRET.ADMIN_ACCESS, (err) => {
       if (err) {
         return next(
-          res
-            .status(403)
-            .json({ error: "Невірний токен або його дія закінчилася" })
+          res.status(403).json({
+            success: false,
+            data: null,
+            errors: "Невірний токен або його дія закінчилася",
+          })
         );
       }
     });
@@ -19,9 +21,11 @@ module.exports = (res, next, token, method) => {
     jwt.verify(token, JWT_SECRET.ACCESS, (err) => {
       if (err) {
         return next(
-          res
-            .status(403)
-            .json({ error: "Невірний токен або його дія закінчилася" })
+          res.status(403).json({
+            success: false,
+            data: null,
+            errors: "Невірний токен або його дія закінчилася",
+          })
         );
       }
     });

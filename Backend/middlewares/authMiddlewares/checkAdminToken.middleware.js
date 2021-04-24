@@ -5,10 +5,14 @@ module.exports = async (req, res, next) => {
   const token = req.get("Authorization");
 
   if (!token) {
-    return next(res.status(403).json({ error: "Немає токена" }));
+    res.status(403).json({
+      success: false,
+      data: null,
+      errors: "Немає токена",
+    });
+  } else {
+    tokenVerificator(token, JWT_METHOD.ADMIN);
+
+    next();
   }
-
-  tokenVerificator(token, JWT_METHOD.ADMIN);
-
-  next();
 };

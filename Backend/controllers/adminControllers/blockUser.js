@@ -7,11 +7,11 @@ module.exports = async (req, res) => {
     const { _id, status_id } = req.user;
 
     if (status_id === USER_STATUS.BLOCKED) {
-      return res
-        .status(403)
-        .json({
-          error: `Ви не можете заблокувати користувача, який вже заблокований`,
-        });
+      return res.status(403).json({
+        success: false,
+        data: null,
+        errors: `Ви не можете заблокувати користувача, який вже заблокований`,
+      });
     }
 
     await User.updateOne(
@@ -20,11 +20,12 @@ module.exports = async (req, res) => {
     );
     await OAuthModel.deleteOne({ user_id: _id });
 
-    res.end();
+    res.status(200).end();
   } catch (e) {
     res.json({
-      message: e.message,
-      controller: e.controller || "blockUser",
+      success: false,
+      data: e.controller || "blockUser",
+      errors: e.message,
     });
   }
 };

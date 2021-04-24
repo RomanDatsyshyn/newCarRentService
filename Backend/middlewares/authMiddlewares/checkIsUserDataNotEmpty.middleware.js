@@ -20,7 +20,11 @@ module.exports = async (req, res, next) => {
   }
 
   if (errors.name || errors.age || errors.phone || errors.password) {
-    return next(res.status(404).json({ errors: errors, success: false }));
+    res.status(404).json({
+      success: false,
+      data: null,
+      errors: errors,
+    });
   } else {
     if (name.length < 3) {
       errors.name = "Введіть ваше повне ім'я";
@@ -40,7 +44,11 @@ module.exports = async (req, res, next) => {
   }
 
   if (errors.name || errors.age || errors.phone || errors.password) {
-    return next(res.status(404).json({ errors: errors, success: false }));
+    res.status(404).json({
+      success: false,
+      data: null,
+      errors: errors,
+    });
   } else {
     next();
   }

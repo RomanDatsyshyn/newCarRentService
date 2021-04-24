@@ -5,7 +5,13 @@ module.exports = async (req, res, next) => {
   const token = req.get("Authorization");
 
   if (!token) {
-    return next(res.status(403).json({ error: "Немає токена" }));
+    return next(
+      res.status(403).json({
+        success: false,
+        data: null,
+        errors: "Немає токена",
+      })
+    );
   }
 
   await tokenVerificator(res, next, token, JWT_METHOD.USER);

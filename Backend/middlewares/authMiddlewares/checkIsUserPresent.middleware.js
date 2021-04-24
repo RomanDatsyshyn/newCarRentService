@@ -7,7 +7,11 @@ module.exports = async (req, res, next) => {
 
   if (!user) {
     return next(
-      res.status(404).json({ error: `Користувача з таким номером не існує` })
+      res.status(404).json({
+        success: false,
+        data: null,
+        errors: `Користувача з таким номером не існує`,
+      })
     );
   }
 

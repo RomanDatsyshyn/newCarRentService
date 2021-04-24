@@ -8,7 +8,13 @@ module.exports = async (req, res, next) => {
   });
 
   if (!userFromAccessToken) {
-    return next(res.status(404).json({ error: "Немає користувача" }));
+    return next(
+      res.status(404).json({
+        success: false,
+        data: null,
+        errors: "Немає користувача",
+      })
+    );
   }
 
   req.user = userFromAccessToken[0].user_id;
