@@ -7,6 +7,7 @@ router.use(orderMiddlewares.getTokenFromHeadersMiddleware);
 
 router.get("/", orderControllers.getAll);
 router.get("/:order_id", orderControllers.getOrderById);
+router.delete("/:order_id", orderControllers.deleteOrder);
 
 router.post(
   "/create",
