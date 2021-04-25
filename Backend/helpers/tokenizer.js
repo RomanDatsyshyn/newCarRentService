@@ -4,10 +4,10 @@ const { JWT_SECRET, JWT_METHOD } = require("../constants");
 
 module.exports = (id, method) => {
   if (method === JWT_METHOD.ADMIN) {
-    const access_token = jwt.sign({}, JWT_SECRET.ADMIN_ACCESS, {
+    const access_token = jwt.sign({ id: id }, JWT_SECRET.ADMIN_ACCESS, {
       expiresIn: "24h",
     });
-    const refresh_token = jwt.sign({}, JWT_SECRET.ADMIN_REFRESH, {
+    const refresh_token = jwt.sign({ id: id }, JWT_SECRET.ADMIN_REFRESH, {
       expiresIn: "96h",
     });
 
@@ -21,7 +21,7 @@ module.exports = (id, method) => {
     const access_token = jwt.sign({ id: id }, JWT_SECRET.ACCESS, {
       expiresIn: "24h",
     });
-    const refresh_token = jwt.sign({}, JWT_SECRET.REFRESH, {
+    const refresh_token = jwt.sign({ id: id }, JWT_SECRET.REFRESH, {
       expiresIn: "96h",
     });
 
@@ -31,5 +31,5 @@ module.exports = (id, method) => {
     };
   }
 
-  throw new Error("Помилка в файлі tokenizer.js");
+  // throw new Error("Помилка в файлі tokenizer.js");
 };

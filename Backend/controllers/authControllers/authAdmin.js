@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
       role_id: USER_ROLES.ADMIN,
     });
 
-    if (!isUserPresent) {
+    if (isUserPresent[0] == undefined) {
       return res.status(404).json({
         success: false,
         data: null,
@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
 
     await checkPasswordHash(isUserPresent[0].password, password);
 
-    const tokens = tokenizer(JWT_METHOD.ADMIN);
+    const tokens = tokenizer("ADMIN", JWT_METHOD.ADMIN);
 
     const newOAuth = new OAuthModel({
       user_id: isUserPresent[0].id,
