@@ -6,6 +6,7 @@ const { USER_ROLES, USER_STATUS, JWT_METHOD } = require("../../constants");
 module.exports = async (req, res) => {
   try {
     const { phone, password } = req.body;
+    const { id } = res.locals;
 
     const isUserPresent = await UserModel.find({
       phone: phone,
@@ -30,7 +31,7 @@ module.exports = async (req, res) => {
 
     await checkPasswordHash(isUserPresent[0].password, password);
 
-    const tokens = tokenizer(JWT_METHOD.USER);
+    const tokens = tokenizer(id, JWT_METHOD.USER);
 
     const newOAuth = new OAuthModel({
       user_id: isUserPresent[0].id,

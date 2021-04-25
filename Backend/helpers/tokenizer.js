@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const { JWT_SECRET, JWT_METHOD } = require("../constants");
 
-module.exports = (method) => {
+module.exports = (id, method) => {
   if (method === JWT_METHOD.ADMIN) {
     const access_token = jwt.sign({}, JWT_SECRET.ADMIN_ACCESS, {
       expiresIn: "24h",
@@ -18,7 +18,9 @@ module.exports = (method) => {
   }
 
   if (method === JWT_METHOD.USER) {
-    const access_token = jwt.sign({}, JWT_SECRET.ACCESS, { expiresIn: "24h" });
+    const access_token = jwt.sign({ id: id }, JWT_SECRET.ACCESS, {
+      expiresIn: "24h",
+    });
     const refresh_token = jwt.sign({}, JWT_SECRET.REFRESH, {
       expiresIn: "96h",
     });

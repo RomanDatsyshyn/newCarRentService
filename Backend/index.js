@@ -24,7 +24,7 @@ app.use("/cars", carRouter);
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
 app.use("/admin", adminRouter);
-// app.use("/orders", orderRoutes);
+app.use("/orders", orderRoutes);
 app.use("/carImage", express.static("carImage"));
 
 const server = http.createServer(app);
