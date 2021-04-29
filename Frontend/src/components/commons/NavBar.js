@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import header from "./header.svg";
 
 const NavBar = () => {
@@ -6,11 +7,11 @@ const NavBar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link to="/" className="navbar-brand">
             <b>
               <i className="fas fa-car"></i> RentCar
             </b>
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -25,14 +26,14 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link to="/" className="nav-link active" aria-current="page">
                   Головна
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/cars" className="nav-link" href="#">
                   Автопарк
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
@@ -48,14 +49,14 @@ const NavBar = () => {
             <div>
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link to="/login" className="nav-link">
                     Вхід
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link to="/register" className="nav-link">
                     Реєстація
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
