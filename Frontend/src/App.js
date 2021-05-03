@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import NavBar from "./components/commons/NavBar";
-import Footer from "./components/commons/Footer";
-import Home from "./components/Pages/Home";
-import ALogin from "./components/Pages/ALogin";
-import Login from "./components/Pages/Login";
-import Register from "./components/Pages/Register";
-import Cars from "./components/Pages/Cars";
-import Car from "./components/Pages/CarPage";
+import NavBar from "./Components/Commons/NavBar";
+import Footer from "./Components/Commons/Footer";
+import Home from "./Pages/Home";
+import ALogin from "./Pages/Auth/ALogin";
+import Login from "./Pages/Auth/Login";
+import Register from "./Pages/Auth/Register";
+import Cars from "./Pages/Cars/Cars";
+import Car from "./Pages/Cars/CarPage";
 
 import "./styles.css";
 

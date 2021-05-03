@@ -1,5 +1,5 @@
 import React from "react";
-import mercedes from "../../cars/1.jpeg";
+import mercedes from "../images/1.jpeg";
 
 const Home = () => {
   return (

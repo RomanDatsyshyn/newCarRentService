@@ -1,7 +1,7 @@
 import React from "react";
-import mercedes from "../../cars/1.jpeg";
+import mercedes from "../../images/1.jpeg";
 
-const Cars = () => {
+const CarPage = () => {
   return (
     <>
       <h1 className="display-4 text-center">Наш автопарк</h1>
@@ -208,4 +208,4 @@ const Cars = () => {
   );
 };
 
-export default Cars;
+export default CarPage;
