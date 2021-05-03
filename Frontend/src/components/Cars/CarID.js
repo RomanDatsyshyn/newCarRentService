@@ -44,7 +44,7 @@ class CarID extends Component {
               </div>
             </div>
             <div className="col-md-10 auto">
-              <img src={""} className="card-img-top" />
+              <img src={""} className="card-img-top" alt="" />
             </div>
           </div>
         </div>

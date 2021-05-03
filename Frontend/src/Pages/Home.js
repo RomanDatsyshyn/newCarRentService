@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import mercedes from "../images/1.jpeg";
 
+import CommonDataService from "../API/common.service";
+
 const Home = () => {
+  useEffect(() => {
+    retrieveCars();
+  }, []);
+
+  const retrieveCars = () => {
+    CommonDataService.getAllCars()
+      .then((res) => {
+        const { data } = res;
+        console.log(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
     <>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-3 mt-1">
@@ -68,45 +85,45 @@ const Home = () => {
           />
         </div>
       </div>
-      <div class="d-grid mb-4">
-        <button type="button" class="btn info">
+      <div className="d-grid mb-4">
+        <button type="button" className="btn info">
           Підібрати авто
         </button>
       </div>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <div className="col">
           <div className="card">
-            <img src={mercedes} className="card-img-top" />
+            <img src={mercedes} className="card-img-top" alt="" />
             <div className="card-body">
               <h5 className="card-title">Mercedes-AMG S 63 Coupe</h5>
               <hr />
-              <div class="container">
-                <div class="row align-items-start">
-                  <div class="col fw-bold">
+              <div className="container">
+                <div className="row align-items-start">
+                  <div className="col fw-bold">
                     1-2 <br />
                     Доби
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     3-7 <br />
                     Діб
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     8-30 <br />
                     Діб
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     31-60 <br />
                     Діб
                   </div>
                 </div>
               </div>
               <hr />
-              <div class="container">
-                <div class="row align-items-start">
-                  <div class="col">245$</div>
-                  <div class="col">233$</div>
-                  <div class="col">221$</div>
-                  <div class="col">209$</div>
+              <div className="container">
+                <div className="row align-items-start">
+                  <div className="col">245$</div>
+                  <div className="col">233$</div>
+                  <div className="col">221$</div>
+                  <div className="col">209$</div>
                 </div>
               </div>
               <hr />
@@ -115,8 +132,8 @@ const Home = () => {
                 <br />
                 Львів / 2019 / Бензин 6.3
               </p>
-              <div class="d-grid">
-                <button type="button" class="btn btn-warning mt-2 fw-light">
+              <div className="d-grid">
+                <button type="button" className="btn btn-warning mt-2 fw-light">
                   Обрати
                 </button>
               </div>
@@ -125,37 +142,37 @@ const Home = () => {
         </div>
         <div className="col">
           <div className="card">
-            <img src={mercedes} className="card-img-top" />
+            <img src={mercedes} className="card-img-top" alt="" />
             <div className="card-body">
               <h5 className="card-title">Mercedes-AMG S 63 Coupe</h5>
               <hr />
-              <div class="container">
-                <div class="row align-items-start">
-                  <div class="col fw-bold">
+              <div className="container">
+                <div className="row align-items-start">
+                  <div className="col fw-bold">
                     1-2 <br />
                     Доби
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     3-7 <br />
                     Діб
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     8-30 <br />
                     Діб
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     31-60 <br />
                     Діб
                   </div>
                 </div>
               </div>
               <hr />
-              <div class="container">
-                <div class="row align-items-start">
-                  <div class="col">245$</div>
-                  <div class="col">233$</div>
-                  <div class="col">221$</div>
-                  <div class="col">209$</div>
+              <div className="container">
+                <div className="row align-items-start">
+                  <div className="col">245$</div>
+                  <div className="col">233$</div>
+                  <div className="col">221$</div>
+                  <div className="col">209$</div>
                 </div>
               </div>
               <hr />
@@ -164,8 +181,8 @@ const Home = () => {
                 <br />
                 Львів / 2019 / Бензин 6.3
               </p>
-              <div class="d-grid">
-                <button type="button" class="btn btn-warning mt-2 fw-light">
+              <div className="d-grid">
+                <button type="button" className="btn btn-warning mt-2 fw-light">
                   Обрати
                 </button>
               </div>
@@ -174,37 +191,37 @@ const Home = () => {
         </div>
         <div className="col">
           <div className="card">
-            <img src={mercedes} className="card-img-top" />
+            <img src={mercedes} className="card-img-top" alt="" />
             <div className="card-body">
               <h5 className="card-title">Mercedes-AMG S 63 Coupe</h5>
               <hr />
-              <div class="container">
-                <div class="row align-items-start">
-                  <div class="col fw-bold">
+              <div className="container">
+                <div className="row align-items-start">
+                  <div className="col fw-bold">
                     1-2 <br />
                     Доби
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     3-7 <br />
                     Діб
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     8-30 <br />
                     Діб
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     31-60 <br />
                     Діб
                   </div>
                 </div>
               </div>
               <hr />
-              <div class="container">
-                <div class="row align-items-start">
-                  <div class="col">245$</div>
-                  <div class="col">233$</div>
-                  <div class="col">221$</div>
-                  <div class="col">209$</div>
+              <div className="container">
+                <div className="row align-items-start">
+                  <div className="col">245$</div>
+                  <div className="col">233$</div>
+                  <div className="col">221$</div>
+                  <div className="col">209$</div>
                 </div>
               </div>
               <hr />
@@ -213,8 +230,8 @@ const Home = () => {
                 <br />
                 Львів / 2019 / Бензин 6.3
               </p>
-              <div class="d-grid">
-                <button type="button" class="btn btn-warning mt-2 fw-light">
+              <div className="d-grid">
+                <button type="button" className="btn btn-warning mt-2 fw-light">
                   Обрати
                 </button>
               </div>
@@ -223,37 +240,37 @@ const Home = () => {
         </div>
         <div className="col">
           <div className="card">
-            <img src={mercedes} className="card-img-top" />
+            <img src={mercedes} className="card-img-top" alt="" />
             <div className="card-body">
               <h5 className="card-title">Mercedes-AMG S 63 Coupe</h5>
               <hr />
-              <div class="container">
-                <div class="row align-items-start">
-                  <div class="col fw-bold">
+              <div className="container">
+                <div className="row align-items-start">
+                  <div className="col fw-bold">
                     1-2 <br />
                     Доби
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     3-7 <br />
                     Діб
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     8-30 <br />
                     Діб
                   </div>
-                  <div class="col fw-bold">
+                  <div className="col fw-bold">
                     31-60 <br />
                     Діб
                   </div>
                 </div>
               </div>
               <hr />
-              <div class="container">
-                <div class="row align-items-start">
-                  <div class="col">245$</div>
-                  <div class="col">233$</div>
-                  <div class="col">221$</div>
-                  <div class="col">209$</div>
+              <div className="container">
+                <div className="row align-items-start">
+                  <div className="col">245$</div>
+                  <div className="col">233$</div>
+                  <div className="col">221$</div>
+                  <div className="col">209$</div>
                 </div>
               </div>
               <hr />
@@ -262,8 +279,8 @@ const Home = () => {
                 <br />
                 Львів / 2019 / Бензин 6.3
               </p>
-              <div class="d-grid">
-                <button type="button" class="btn btn-warning mt-2 fw-light">
+              <div className="d-grid">
+                <button type="button" className="btn btn-warning mt-2 fw-light">
                   Обрати
                 </button>
               </div>

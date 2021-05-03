@@ -31,19 +31,19 @@ const NavBar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/cars" className="nav-link" href="#">
+                <Link to="/cars" className="nav-link">
                   Автопарк
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/" className="nav-link">
                   Ціни
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/" className="nav-link">
                   Умови
-                </a>
+                </Link>
               </li>
             </ul>
             <div>

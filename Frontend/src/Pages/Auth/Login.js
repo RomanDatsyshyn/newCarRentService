@@ -36,7 +36,7 @@ const Login = () => {
           {/* {error && <div className="invalid-feedback">{error}</div>} */}
         </div>
 
-        <div class="d-grid mb-4">
+        <div className="d-grid mb-4">
           <button type="submit" className="btn btn-lg btn-block info mt-4">
             Увійти
           </button>

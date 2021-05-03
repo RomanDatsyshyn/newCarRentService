@@ -7,9 +7,9 @@ class CommonDataService {
   //   getByName(name) {
   //     return http.get(`/search/?name=${name}`);
   //   }
-  //   getAll(page) {
-  //     return http.get(`/?page=${page}&limit=8`);
-  //   }
+  getAllCars() {
+    return http.get(`/cars`);
+  }
   //   create(data) {
   //     return http.post("/add", data);
   //   }
