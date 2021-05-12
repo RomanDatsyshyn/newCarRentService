@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
 
   if (!userFromAccessToken) {
     return next(
-      res.status(404).json({
+      res.json({
         success: false,
         data: null,
         errors: "Немає користувача",

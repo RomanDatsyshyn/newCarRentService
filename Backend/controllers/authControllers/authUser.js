@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
     });
 
     if (isUserPresent[0] == undefined) {
-      return res.status(404).json({
+      return res.json({
         success: false,
         data: null,
         errors: `Такого користувача не існує`,

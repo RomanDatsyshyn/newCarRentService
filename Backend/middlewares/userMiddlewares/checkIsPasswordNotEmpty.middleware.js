@@ -3,7 +3,7 @@ module.exports = (req, res, next) => {
 
   if (!password) {
     return next(
-      res.status(404).json({
+      res.json({
         success: false,
         data: null,
         errors: `Введіть новий пароль`,
@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
 
   if (password.length < 6) {
     return next(
-      res.status(404).json({
+      res.json({
         success: false,
         data: null,
         errors: "Пароль має бути більше ніж 5 символів",

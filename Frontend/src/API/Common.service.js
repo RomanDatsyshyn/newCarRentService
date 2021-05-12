@@ -10,9 +10,9 @@ class CommonDataService {
   getAllCars() {
     return http.get(`/cars`);
   }
-  //   create(data) {
-  //     return http.post("/add", data);
-  //   }
+  login(data) {
+    return http.post("/auth", data);
+  }
   //   update(id, data) {
   //     return http.put(`/${id}`, data);
   //   }

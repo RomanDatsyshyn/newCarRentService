@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
   }
 
   if (errors.name || errors.age || errors.phone || errors.password) {
-    res.status(404).json({
+    res.json({
       success: false,
       data: null,
       errors: errors,
@@ -44,7 +44,7 @@ module.exports = async (req, res, next) => {
   }
 
   if (errors.name || errors.age || errors.phone || errors.password) {
-    res.status(404).json({
+    res.json({
       success: false,
       data: null,
       errors: errors,

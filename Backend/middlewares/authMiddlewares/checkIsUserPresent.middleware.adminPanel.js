@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
 
   if (!user) {
     return next(
-      res.status(404).json({
+      res.json({
         success: false,
         data: null,
         errors: `Немає такого користувача`,

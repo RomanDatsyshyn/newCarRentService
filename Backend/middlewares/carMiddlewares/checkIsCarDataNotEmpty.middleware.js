@@ -41,7 +41,7 @@ module.exports = (req, res, next) => {
     errors.engine
   ) {
     return next(
-      res.status(404).json({
+      res.json({
         success: false,
         data: null,
         errors: errors,
@@ -87,7 +87,7 @@ module.exports = (req, res, next) => {
     errors.engine
   ) {
     return next(
-      res.status(404).json({
+      res.json({
         success: false,
         data: null,
         errors: errors,

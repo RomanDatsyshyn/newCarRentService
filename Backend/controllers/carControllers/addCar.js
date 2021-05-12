@@ -6,7 +6,6 @@ module.exports = async (req, res) => {
 
     if (req.file === undefined) {
       res
-        .status(404)
         .json({
           success: false,
           data: null,
