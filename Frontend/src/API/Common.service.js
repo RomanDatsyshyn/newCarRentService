@@ -13,6 +13,12 @@ class CommonDataService {
   login(data) {
     return http.post("/auth", data);
   }
+  Alogin(data) {
+    return http.post("/admin/auth/drv-login", data);
+  }
+  registert(data) {
+    return http.post("/user", data);
+  }
   //   update(id, data) {
   //     return http.put(`/${id}`, data);
   //   }

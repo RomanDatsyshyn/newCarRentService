@@ -1,7 +1,7 @@
 import React from "react";
 
-import AddOrder from "../../Components/Cars/AddOrder";
-import CarItem from "../../Components/Cars/CarID";
+import AddOrder from "../../components/Cars/AddOrder";
+import CarItem from "../../components/Cars/CarID";
 
 const Cars = () => {
   return (

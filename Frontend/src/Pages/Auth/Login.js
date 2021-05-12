@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import setAuthToken from "../../utils/setAuthToken";
 
-import CommonDataService from "../../API/common.service";
+import CommonDataService from "../../API/Common.service";
 
 const Login = () => {
+  let history = useHistory();
+
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
 
@@ -47,8 +51,13 @@ const Login = () => {
         const { data } = res;
 
         if (data.success) {
-          alert(777);
-          console.log(data.data);
+          const { access_token } = data.data;
+
+          localStorage.setItem("access_token", access_token);
+
+          setAuthToken(access_token);
+
+          history.push("/profile");
         } else {
           setErrors(data.errors);
         }
