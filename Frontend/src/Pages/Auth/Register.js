@@ -73,7 +73,7 @@ const Register = () => {
       .then((res) => {
         const { data, status } = res;
 
-        if (status) {
+        if (status === 201) {
           history.push("/login");
         } else {
           setErrors(data.errors);

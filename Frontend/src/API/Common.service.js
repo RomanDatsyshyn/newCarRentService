@@ -19,6 +19,16 @@ class CommonDataService {
   registert(data) {
     return http.post("/user", data);
   }
+  addCar(data) {
+    return http.post("/cars/add", data, {
+      headers: {
+        "content-type": "multipart/form-data",
+        Authorization: localStorage.getItem("access_token")
+          ? localStorage.getItem("access_token")
+          : null,
+      },
+    });
+  }
   //   update(id, data) {
   //     return http.put(`/${id}`, data);
   //   }

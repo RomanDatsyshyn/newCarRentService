@@ -5,7 +5,7 @@ module.exports = async (req, res, next) => {
   const token = req.get("Authorization");
 
   if (!token) {
-    res.status(403).json({
+    res.json({
       success: false,
       data: null,
       errors: "Немає токена",

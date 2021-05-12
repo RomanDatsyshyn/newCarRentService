@@ -9,6 +9,7 @@ import Register from "./Pages/Auth/Register";
 import Profile from "./Pages/Profile";
 import Cars from "./Pages/Cars/Cars";
 import Car from "./Pages/Cars/CarPage";
+import AddCar from "./Pages/Cars/AddCar";
 
 import PrivateRoute from "./utils/PrivateRoute";
 
@@ -27,6 +28,7 @@ const App = () => {
         <Route exact path="/admin-panel" component={ALogin} />
 
         <PrivateRoute path="/profile" component={Profile} exact />
+        <PrivateRoute path="/addcar" component={AddCar} exact />
       </div>
       <Footer />
     </Router>

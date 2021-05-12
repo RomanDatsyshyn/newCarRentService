@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
 
   if (!token) {
     return next(
-      res.status(403).json({
+      res.json({
         success: false,
         data: null,
         errors: "Немає токена",

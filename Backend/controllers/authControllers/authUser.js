@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
     }
 
     if (isUserPresent[0].status_id !== USER_STATUS.ACTIVE) {
-      return res.status(403).json({
+      return res.json({
         success: false,
         data: null,
         errors: `Ваш акаунт заблокований`,

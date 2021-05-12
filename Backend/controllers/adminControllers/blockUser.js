@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     const { _id, status_id } = req.user;
 
     if (status_id === USER_STATUS.BLOCKED) {
-      return res.status(403).json({
+      return res.json({
         success: false,
         data: null,
         errors: `Ви не можете заблокувати користувача, який вже заблокований`,
