@@ -23,11 +23,13 @@ const CarItem = ({ i, retrieveCars }) => {
   return (
     <div className="col">
       <div className="card">
-        <img
-          src={`http://localhost:3001/${i.carImage}`}
-          className="card-img-top"
-          alt=""
-        />
+        <Link to={`/cars/${i.id}`}>
+          <img
+            src={`http://localhost:3001/${i.carImage}`}
+            className="card-img-top"
+            alt=""
+          />
+        </Link>
         <div className="card-body">
           <h5 className="card-title">{i.name}</h5>
           <hr />
@@ -85,9 +87,13 @@ const CarItem = ({ i, retrieveCars }) => {
             / {i.year} / {i.engine}
           </p>
           <div className="d-grid">
-            <button type="button" className="btn btn-warning mt-2 fw-light">
+            <Link
+              to={`/cars/${i.id}`}
+              className="btn btn-warning mt-2 fw-light"
+            >
               Обрати
-            </button>
+            </Link>
+
             {localStorage.getItem("admin_token") && (
               <button
                 onClick={() => sendRequest(i.id)}

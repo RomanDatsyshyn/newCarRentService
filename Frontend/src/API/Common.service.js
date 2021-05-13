@@ -1,9 +1,9 @@
 import http from "./HTTP";
 
 class CommonDataService {
-  //   GetById(id) {
-  //     return http.get(`/${id}`);
-  //   }
+  GetById(id) {
+    return http.get(`/cars/${id}`);
+  }
   //   getByName(name) {
   //     return http.get(`/search/?name=${name}`);
   //   }
@@ -18,6 +18,13 @@ class CommonDataService {
   }
   registert(data) {
     return http.post("/user", data);
+  }
+  createOrder(data) {
+    return http.post("/orders/create", data, {
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    });
   }
   addCar(data) {
     return http.post("/cars/add", data, {
