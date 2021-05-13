@@ -23,15 +23,31 @@ class CommonDataService {
     return http.post("/cars/add", data, {
       headers: {
         "content-type": "multipart/form-data",
-        Authorization: localStorage.getItem("access_token")
-          ? localStorage.getItem("access_token")
-          : null,
+        Authorization: localStorage.getItem("access_token"),
       },
     });
   }
-  //   update(id, data) {
-  //     return http.put(`/${id}`, data);
-  //   }
+  editCarTown(id, data) {
+    return http.put(`/cars/edit/${id}/town`, data, {
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    });
+  }
+  editCarPrice(id, data) {
+    return http.put(`/cars/edit/${id}/price`, data, {
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    });
+  }
+  editCarSegment(id, data) {
+    return http.put(`/cars/edit/${id}/segment`, data, {
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    });
+  }
   //   delete(id) {
   //     return http.delete(`/${id}/delete`);
   //   }

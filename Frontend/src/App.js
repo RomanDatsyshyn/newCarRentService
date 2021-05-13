@@ -10,6 +10,9 @@ import Profile from "./Pages/Profile";
 import Cars from "./Pages/Cars/Cars";
 import Car from "./Pages/Cars/CarPage";
 import AddCar from "./Pages/Cars/AddCar";
+import EditCarTown from "./Pages/Cars/EditCarTown";
+import EditCarPrice from "./Pages/Cars/EditCarPrice";
+import EditCarSegment from "./Pages/Cars/EditCarSegment";
 
 import PrivateRoute from "./utils/PrivateRoute";
 
@@ -29,6 +32,21 @@ const App = () => {
 
         <PrivateRoute path="/profile" component={Profile} exact />
         <PrivateRoute path="/addcar" component={AddCar} exact />
+        <PrivateRoute
+          path="/car/:id/edit/carTown"
+          component={EditCarTown}
+          exact
+        />
+        <PrivateRoute
+          path="/car/:id/edit/carPrice"
+          component={EditCarPrice}
+          exact
+        />
+        <PrivateRoute
+          path="/car/:id/edit/carSegment"
+          component={EditCarSegment}
+          exact
+        />
       </div>
       <Footer />
     </Router>
