@@ -22,7 +22,11 @@ const Home = () => {
       });
   };
 
-  let items = cars && cars.map((i) => <CarItem i={i} key={Math.random()} />);
+  let items =
+    cars &&
+    cars.map((i) => (
+      <CarItem i={i} key={Math.random()} retrieveCars={() => retrieveCars()} />
+    ));
 
   return (
     <>

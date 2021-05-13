@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/commons/NavBar";
 import Footer from "./components/commons/Footer";
@@ -29,24 +29,25 @@ const App = () => {
         <Route exact path="/cars" component={Cars} />
         <Route path="/cars/:id" component={Car} />
         <Route exact path="/admin-panel" component={ALogin} />
-
-        <PrivateRoute path="/profile" component={Profile} exact />
-        <PrivateRoute path="/addcar" component={AddCar} exact />
-        <PrivateRoute
-          path="/car/:id/edit/carTown"
-          component={EditCarTown}
-          exact
-        />
-        <PrivateRoute
-          path="/car/:id/edit/carPrice"
-          component={EditCarPrice}
-          exact
-        />
-        <PrivateRoute
-          path="/car/:id/edit/carSegment"
-          component={EditCarSegment}
-          exact
-        />
+        <Switch>
+          <PrivateRoute path="/profile" component={Profile} exact />
+          <PrivateRoute path="/addcar" component={AddCar} exact />
+          <PrivateRoute
+            path="/car/:id/edit/carTown"
+            component={EditCarTown}
+            exact
+          />
+          <PrivateRoute
+            path="/car/:id/edit/carPrice"
+            component={EditCarPrice}
+            exact
+          />
+          <PrivateRoute
+            path="/car/:id/edit/carSegment"
+            component={EditCarSegment}
+            exact
+          />
+        </Switch>
       </div>
       <Footer />
     </Router>

@@ -23,34 +23,38 @@ class CommonDataService {
     return http.post("/cars/add", data, {
       headers: {
         "content-type": "multipart/form-data",
-        Authorization: localStorage.getItem("access_token"),
+        Authorization: localStorage.getItem("admin_token"),
       },
     });
   }
   editCarTown(id, data) {
     return http.put(`/cars/edit/${id}/town`, data, {
       headers: {
-        Authorization: localStorage.getItem("access_token"),
+        Authorization: localStorage.getItem("admin_token"),
       },
     });
   }
   editCarPrice(id, data) {
     return http.put(`/cars/edit/${id}/price`, data, {
       headers: {
-        Authorization: localStorage.getItem("access_token"),
+        Authorization: localStorage.getItem("admin_token"),
       },
     });
   }
   editCarSegment(id, data) {
     return http.put(`/cars/edit/${id}/segment`, data, {
       headers: {
-        Authorization: localStorage.getItem("access_token"),
+        Authorization: localStorage.getItem("admin_token"),
       },
     });
   }
-  //   delete(id) {
-  //     return http.delete(`/${id}/delete`);
-  //   }
+  deleteCar(id) {
+    return http.delete(`/cars/${id}/delete`, {
+      headers: {
+        Authorization: localStorage.getItem("admin_token"),
+      },
+    });
+  }
 }
 
 export default new CommonDataService();

@@ -1,6 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const CarItem = ({ i }) => {
+import CommonDataService from "../../API//Common.service";
+
+const CarItem = ({ i, retrieveCars }) => {
+  const sendRequest = (id) => {
+    CommonDataService.deleteCar(id)
+      .then((res) => {
+        const { data, status } = res;
+
+        if (status === 204) {
+          retrieveCars();
+        } else {
+          alert(data.errors);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
     <div className="col">
       <div className="card">
@@ -43,20 +62,40 @@ const CarItem = ({ i }) => {
           </div>
           <hr />
           <p className="card-text fw-light mt-3">
+            {localStorage.getItem("admin_token") && (
+              <>
+                <Link to={`/car/${i.id}/edit/carPrice`}>(змінити ціну)</Link>
+                <br />
+              </>
+            )}
             {i.segment === 0 && "Економ"}
             {i.segment === 1 && "Стандарт"}
             {i.segment === 2 && "Комфорт"}
             {i.segment === 3 && "Бізнес"}
             {i.segment === 4 && "Преміум"}
+            {localStorage.getItem("admin_token") && (
+              <Link to={`/car/${i.id}/edit/carSegment`}>(змінити)</Link>
+            )}
             <br />
             {i.town === 0 && "Київ"} {i.town === 1 && "Львів"}
-            {i.town === 2 && "Львів"} {i.town === 3 && "Івано-Франківськ"} /{" "}
-            {i.year} / {i.engine}
+            {i.town === 2 && "Львів"} {i.town === 3 && "Івано-Франківськ"}{" "}
+            {localStorage.getItem("admin_token") && (
+              <Link to={`/car/${i.id}/edit/carTown`}>(змінити)</Link>
+            )}{" "}
+            / {i.year} / {i.engine}
           </p>
           <div className="d-grid">
             <button type="button" className="btn btn-warning mt-2 fw-light">
               Обрати
             </button>
+            {localStorage.getItem("admin_token") && (
+              <button
+                onClick={() => sendRequest(i.id)}
+                className="btn btn-danger mt-2 fw-light"
+              >
+                Видалити
+              </button>
+            )}
           </div>
         </div>
       </div>

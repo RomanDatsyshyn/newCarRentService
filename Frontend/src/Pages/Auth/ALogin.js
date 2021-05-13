@@ -53,7 +53,7 @@ const ALogin = () => {
         if (data.success) {
           const { access_token } = data.data;
 
-          localStorage.setItem("access_token", access_token);
+          localStorage.setItem("admin_token", access_token);
 
           setAuthToken(access_token);
 
