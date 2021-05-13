@@ -4,9 +4,11 @@ class CommonDataService {
   GetById(id) {
     return http.get(`/cars/${id}`);
   }
-  //   getByName(name) {
-  //     return http.get(`/search/?name=${name}`);
-  //   }
+  getByParams(town, segment, fromDate, toDate) {
+    return http.get(
+      `/cars/search?town=${town}&segment=${segment}&fromDate=${fromDate}&toDate=${toDate}`
+    );
+  }
   getAllCars() {
     return http.get(`/cars`);
   }

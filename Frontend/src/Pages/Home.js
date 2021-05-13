@@ -7,6 +7,11 @@ import CarItem from "./Cars/CarItem";
 const Home = () => {
   const [cars, setCars] = useState([]);
 
+  const [town, setTown] = useState("");
+  const [segment, setSegment] = useState("");
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+
   useEffect(() => {
     retrieveCars();
   }, []);
@@ -28,6 +33,22 @@ const Home = () => {
       <CarItem i={i} key={Math.random()} retrieveCars={() => retrieveCars()} />
     ));
 
+  const validation = () => {
+    CommonDataService.getByParams(town, segment, fromDate, toDate)
+      .then((res) => {
+        const { data } = res;
+
+        if (data.success) {
+          setCars(data.data);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
+    // console.log(reqData);
+  };
+
   return (
     <>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-3 mt-1">
@@ -40,16 +61,15 @@ const Home = () => {
             name="town"
             className="form-control mt-1"
             defaultValue={"DEFAULT"}
-            // onChange={this.onChange}
+            onChange={(e) => setTown(e.target.value)}
           >
             <option value="DEFAULT" disabled>
               Оберіть місто...
             </option>
-            <option value="Львів">Львів</option>
-            <option value="Київ">Київ</option>
-            <option value="Івано-Франківськ">Івано-Франківськ</option>
-            <option value="Тернопіль">Тернопіль</option>
-            <option value="Харків">Харків</option>
+            <option value="2">Львів</option>
+            <option value="0">Київ</option>
+            <option value="3">Івано-Франківськ</option>
+            <option value="1">Одесса</option>
           </select>
         </div>
         <div className="col">
@@ -61,16 +81,16 @@ const Home = () => {
             name="class"
             className="form-control mt-1"
             defaultValue={"DEFAULT"}
-            // onChange={this.onChange}
+            onChange={(e) => setSegment(e.target.value)}
           >
             <option value="DEFAULT" disabled>
               Обрати клас автомобіля...
             </option>
-            <option value="Економ">Економ</option>
-            <option value="Стандарт">Стандарт</option>
-            <option value="Комфорт">Комфорт</option>
-            <option value="ПРЕМІУМ">ПРЕМІУМ</option>
-            <option value="Позашляховики">Позашляховики</option>
+            <option value="0">Економ</option>
+            <option value="1">Стандарт</option>
+            <option value="2">Комфорт</option>
+            <option value="3">Бізнес</option>
+            <option value="4">ПРЕМІУМ</option>
           </select>
         </div>
         <div className="col">
@@ -78,7 +98,7 @@ const Home = () => {
           <input
             name="fromDate"
             type="date"
-            // onChange={this.onChange}
+            onChange={(e) => setFromDate(e.target.value)}
             className="form-control  mt-1"
             required
           />
@@ -88,14 +108,14 @@ const Home = () => {
           <input
             name="toDate"
             type="date"
-            // onChange={this.onChange}
+            onChange={(e) => setToDate(e.target.value)}
             className="form-control  mt-1"
             required
           />
         </div>
       </div>
       <div className="d-grid mb-4">
-        <button type="button" className="btn info">
+        <button onClick={() => validation()} className="btn info">
           Підібрати авто
         </button>
       </div>
