@@ -3,197 +3,55 @@ import React from "react";
 const Profile = () => {
   return (
     <>
-      <h1 className="display-4 text-center">Наш автопарк</h1>
-      <p className="lead text-center">Хороші автомобілі для хороших людей!</p>
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Mercedes-AMG S 63 Coupe</h5>
-              <hr />
-              <div className="container">
-                <div className="row align-items-start">
-                  <div className="col fw-bold">
-                    1-2 <br />
-                    Доби
-                  </div>
-                  <div className="col fw-bold">
-                    3-7 <br />
-                    Діб
-                  </div>
-                  <div className="col fw-bold">
-                    8-30 <br />
-                    Діб
-                  </div>
-                  <div className="col fw-bold">
-                    31-60 <br />
-                    Діб
-                  </div>
-                </div>
-              </div>
-              <hr />
-              <div className="container">
-                <div className="row align-items-start">
-                  <div className="col">245$</div>
-                  <div className="col">233$</div>
-                  <div className="col">221$</div>
-                  <div className="col">209$</div>
-                </div>
-              </div>
-              <hr />
-              <p className="card-text fw-light mt-3">
-                ПРЕМІУМ
-                <br />
-                Львів / 2019 / Бензин 6.3
-              </p>
-              <div className="d-grid">
-                <button type="button" className="btn btn-warning mt-2 fw-light">
-                  Обрати
-                </button>
-              </div>
-            </div>
-          </div>
+      <div className="row mt-4">
+        <div className="col-12 col-md-4 col-sm-6 ">
+          <center>
+            <img
+              src="https://www.trzcacak.rs/myfile/full/65-650485_login-user-default-user-image-png.png"
+              alt="..."
+              width="50%"
+            />
+          </center>
+          <h2>{111}</h2>
+          <h5>Особистий кабінет</h5>
+          <a href={`/edit/`} className="btn warning btn-block">
+            Змінити персональні дані
+          </a>
+
+          <button
+            // onClick={removeUser(this.props.history)}
+            className="btn info btn-block"
+            type="submit"
+          >
+            Видалити акаунт
+          </button>
+          <button
+            // onClick={this.jsPdfGenerator}
+            className="btn alert-success btn-block"
+            type="primary"
+          >
+            Мої замовлення в PDF
+          </button>
         </div>
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Mercedes-AMG S 63 Coupe</h5>
-              <hr />
-              <div className="container">
-                <div className="row align-items-start">
-                  <div className="col fw-bold">
-                    1-2 <br />
-                    Доби
-                  </div>
-                  <div className="col fw-bold">
-                    3-7 <br />
-                    Діб
-                  </div>
-                  <div className="col fw-bold">
-                    8-30 <br />
-                    Діб
-                  </div>
-                  <div className="col fw-bold">
-                    31-60 <br />
-                    Діб
-                  </div>
+        <div className="col-12 col-md-8 col-sm-6 ">
+          <div className="card mb-3">
+            <div className="row no-gutters">
+              <div className="col-md-12">
+                <div className="card-body">
+                  <h2 className="card-title">Список моїх замовлень:</h2>
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Початок замовлення</th>
+                        <th scope="col">Закінчення замовлення</th>
+                        <th scope="col">Ціна</th>
+                        <th scope="col">Дії</th>
+                      </tr>
+                    </thead>
+                    {/* <tbody dangerouslySetInnerHTML={{ __html: html }}></tbody> */}
+                  </table>
                 </div>
-              </div>
-              <hr />
-              <div className="container">
-                <div className="row align-items-start">
-                  <div className="col">245$</div>
-                  <div className="col">233$</div>
-                  <div className="col">221$</div>
-                  <div className="col">209$</div>
-                </div>
-              </div>
-              <hr />
-              <p className="card-text fw-light mt-3">
-                ПРЕМІУМ
-                <br />
-                Львів / 2019 / Бензин 6.3
-              </p>
-              <div className="d-grid">
-                <button type="button" className="btn btn-warning mt-2 fw-light">
-                  Обрати
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Mercedes-AMG S 63 Coupe</h5>
-              <hr />
-              <div className="container">
-                <div className="row align-items-start">
-                  <div className="col fw-bold">
-                    1-2 <br />
-                    Доби
-                  </div>
-                  <div className="col fw-bold">
-                    3-7 <br />
-                    Діб
-                  </div>
-                  <div className="col fw-bold">
-                    8-30 <br />
-                    Діб
-                  </div>
-                  <div className="col fw-bold">
-                    31-60 <br />
-                    Діб
-                  </div>
-                </div>
-              </div>
-              <hr />
-              <div className="container">
-                <div className="row align-items-start">
-                  <div className="col">245$</div>
-                  <div className="col">233$</div>
-                  <div className="col">221$</div>
-                  <div className="col">209$</div>
-                </div>
-              </div>
-              <hr />
-              <p className="card-text fw-light mt-3">
-                ПРЕМІУМ
-                <br />
-                Львів / 2019 / Бензин 6.3
-              </p>
-              <div className="d-grid">
-                <button type="button" className="btn btn-warning mt-2 fw-light">
-                  Обрати
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Mercedes-AMG S 63 Coupe</h5>
-              <hr />
-              <div className="container">
-                <div className="row align-items-start">
-                  <div className="col fw-bold">
-                    1-2 <br />
-                    Доби
-                  </div>
-                  <div className="col fw-bold">
-                    3-7 <br />
-                    Діб
-                  </div>
-                  <div className="col fw-bold">
-                    8-30 <br />
-                    Діб
-                  </div>
-                  <div className="col fw-bold">
-                    31-60 <br />
-                    Діб
-                  </div>
-                </div>
-              </div>
-              <hr />
-              <div className="container">
-                <div className="row align-items-start">
-                  <div className="col">245$</div>
-                  <div className="col">233$</div>
-                  <div className="col">221$</div>
-                  <div className="col">209$</div>
-                </div>
-              </div>
-              <hr />
-              <p className="card-text fw-light mt-3">
-                ПРЕМІУМ
-                <br />
-                Львів / 2019 / Бензин 6.3
-              </p>
-              <div className="d-grid">
-                <button type="button" className="btn btn-warning mt-2 fw-light">
-                  Обрати
-                </button>
               </div>
             </div>
           </div>

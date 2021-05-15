@@ -60,8 +60,8 @@ module.exports = (req, res, next) => {
       errors.segment = "Введіть коректний номер міста сегментa";
     }
 
-    if (year < 2005 || year > 2022) {
-      errors.year = "Рік авто має бути в межах 2005-2022";
+    if (year < 2010 || year > 2022) {
+      errors.year = "Рік авто має бути в межах 2010-2022";
     }
 
     if (price < 20) {
