@@ -4,12 +4,15 @@ const Car = require("../../database/models/Car");
 module.exports = async (req, res) => {
   try {
     const orders = await Order.find({});
-    // const userOrders = [];
+    const cars = await Car.find({});
+
     const Days = [];
     const Cities = [];
     const Segments = [];
     const Years = [];
     const Transmissions = [];
+    const ByCars = [];
+    const Term = [];
 
     // -------------Дні----------------//
 
@@ -167,10 +170,92 @@ module.exports = async (req, res) => {
       automat: Automat,
     });
 
+    // -------------По автомобілю----------------//
+
+    for (let i = 0; i < cars.length; i++) {
+      let obj = {
+        name: cars[i].id,
+        amount: 0,
+      };
+
+      for (let j = 0; j < orders.length; j++) {
+        if (orders[j].car == cars[i].id) {
+          obj.amount++;
+        }
+      }
+
+      ByCars.push(obj);
+    }
+
+    // -------------На який періуд----------------//
+
+    let day1 = 0;
+    let day2 = 0;
+    let day3 = 0;
+    let day4 = 0;
+    let day5 = 0;
+    let day6 = 0;
+    let day7 = 0;
+    let day8 = 0;
+    let day9 = 0;
+    let day10 = 0;
+    let day15 = 0;
+    let day20 = 0;
+    let day25 = 0;
+    let day30 = 0;
+    let day31 = 0;
+
+    orders.map((o) => {
+      let fromDate = new Date(o.fromDate);
+      let toDate = new Date(o.toDate);
+
+      var diff = toDate - fromDate;
+
+      var milliseconds = diff;
+      var seconds = milliseconds / 1000;
+      var minutes = seconds / 60;
+      var hours = minutes / 60;
+      var days = hours / 24;
+
+      if (Math.ceil(days) == 1) day1++;
+      if (Math.ceil(days) == 2) day2++;
+      if (Math.ceil(days) == 3) day3++;
+      if (Math.ceil(days) == 4) day4++;
+      if (Math.ceil(days) == 5) day5++;
+      if (Math.ceil(days) == 6) day6++;
+      if (Math.ceil(days) == 7) day7++;
+      if (Math.ceil(days) == 8) day8++;
+      if (Math.ceil(days) == 9) day9++;
+      if (Math.ceil(days) == 10) day10++;
+      if (Math.ceil(days) > 10 && Math.ceil(days) <= 15) day15++;
+      if (Math.ceil(days) > 15 && Math.ceil(days) <= 20) day20++;
+      if (Math.ceil(days) > 20 && Math.ceil(days) <= 25) day25++;
+      if (Math.ceil(days) > 25 && Math.ceil(days) <= 30) day30++;
+      if (Math.ceil(days) > 30) day31++;
+    });
+
+    Term.push({
+      day1: day1,
+      day2: day2,
+      day3: day3,
+      day4: day4,
+      day5: day5,
+      day6: day6,
+      day7: day7,
+      day8: day8,
+      day9: day9,
+      day10: day10,
+      day15: day15,
+      day20: day20,
+      day25: day25,
+      day30: day30,
+      day31: day31,
+    });
+
     res.status(200).json({
       success: true,
       // data: userOrders.map((o) => o.toJSON()),
-      data: Transmissions,
+      data: Term,
       errors: null,
     });
   } catch (e) {
