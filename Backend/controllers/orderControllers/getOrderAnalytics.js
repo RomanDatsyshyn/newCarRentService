@@ -294,16 +294,48 @@ module.exports = async (req, res) => {
       F55T60: age60,
     });
 
+    // -------------Роки клієнтів+Марки----------------//
+    let ModelAndYear = [];
+
+    for (let i = 0; i < orders.length; i++) {
+      const userData = await User.findById(orders[i].user);
+
+      let obj = {
+        car: orders[i].car,
+        year: userData.age,
+      };
+
+      ModelAndYear.push(obj);
+    }
+
+    // -------------Модифікація ByCars----------------//
+
+    for (let i = 0; i < ByCars.length; i++) {
+      const carData = await Car.findById(ByCars[i].name);
+
+      ByCars[i].name = carData.name;
+    }
+
+    // -------------Кінець----------------//
+
     res.status(200).json({
       success: true,
-      // data: userOrders.map((o) => o.toJSON()),
-      data: Ages,
+      data: {
+        Days: Days,
+        Cities: Cities,
+        Segments: Segments,
+        Years: Years,
+        Transmissions: Transmissions,
+        ByCars: ByCars,
+        Term: Term,
+        Ages: Ages,
+      },
       errors: null,
     });
   } catch (e) {
     res.status(400).json({
       success: false,
-      data: e.controller || "GetOrderById",
+      data: e.controller || "GetAnalytics",
       errors: e.message,
     });
   }

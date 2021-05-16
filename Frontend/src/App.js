@@ -13,6 +13,7 @@ import AddCar from "./Pages/Cars/AddCar";
 import EditCarTown from "./Pages/Cars/EditCarTown";
 import EditCarPrice from "./Pages/Cars/EditCarPrice";
 import EditCarSegment from "./Pages/Cars/EditCarSegment";
+import Analytics from "./Pages/Analytics";
 
 import PrivateRoute from "./utils/PrivateRoute";
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/analytics" component={Analytics} />
         <Route exact path="/cars" component={Cars} />
         <Route path="/cars/:id" component={Car} />
         <Route exact path="/admin-panel" component={ALogin} />
