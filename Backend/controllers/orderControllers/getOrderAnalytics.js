@@ -1,4 +1,5 @@
 const Order = require("../../database/models/Order");
+const User = require("../../database/models/User");
 const Car = require("../../database/models/Car");
 
 module.exports = async (req, res) => {
@@ -13,6 +14,7 @@ module.exports = async (req, res) => {
     const Transmissions = [];
     const ByCars = [];
     const Term = [];
+    const Ages = [];
 
     // -------------Дні----------------//
 
@@ -252,10 +254,50 @@ module.exports = async (req, res) => {
       day31: day31,
     });
 
+    // -------------Роки клієнтів----------------//
+
+    let age20 = 0;
+    let age25 = 0;
+    let age30 = 0;
+    let age35 = 0;
+    let age40 = 0;
+    let age45 = 0;
+    let age50 = 0;
+    let age55 = 0;
+    let age60 = 0;
+
+    for (let i = 0; i < orders.length; i++) {
+      if (orders[i] && orders[i].user) {
+        const userData = await User.findById(orders[i].user);
+
+        if (userData.age == 20) age20++;
+        if (userData.age > 20 && userData.age <= 25) age25++;
+        if (userData.age > 25 && userData.age <= 30) age30++;
+        if (userData.age > 30 && userData.age <= 35) age35++;
+        if (userData.age > 35 && userData.age <= 40) age40++;
+        if (userData.age > 40 && userData.age <= 45) age45++;
+        if (userData.age > 45 && userData.age <= 50) age50++;
+        if (userData.age > 50 && userData.age <= 55) age55++;
+        if (userData.age > 55 && userData.age <= 60) age60++;
+      }
+    }
+
+    Ages.push({
+      20: age20,
+      F20T25: age25,
+      F25T30: age30,
+      F30T35: age35,
+      F35T40: age40,
+      F40T45: age45,
+      F45T50: age50,
+      F50T55: age55,
+      F55T60: age60,
+    });
+
     res.status(200).json({
       success: true,
       // data: userOrders.map((o) => o.toJSON()),
-      data: Term,
+      data: Ages,
       errors: null,
     });
   } catch (e) {
