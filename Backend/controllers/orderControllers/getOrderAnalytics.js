@@ -316,19 +316,185 @@ module.exports = async (req, res) => {
       ByCars[i].name = carData.name;
     }
 
+    // -------------Модифікація Days----------------//
+
+    let newDaysFormat = {
+      labels: [
+        "Понеділок",
+        "Вівторок",
+        "Середа",
+        "Четвер",
+        "П'ятниця",
+        "Субота",
+        "Неділя",
+      ],
+      values: [
+        Days[0].monday,
+        Days[0].tuesday,
+        Days[0].wednesday,
+        Days[0].thursday,
+        Days[0].friday,
+        Days[0].saturday,
+        Days[0].sunday,
+      ],
+    };
+
+    // -------------Модифікація Cities----------------//
+
+    let newCitiesFormat = {
+      labels: ["Київ", "Одеса", "Львів", "Івано-Франківськ"],
+      values: [Cities[0].kyiv, Cities[0].odessa, Cities[0].lviv, Cities[0].if],
+    };
+
+    // -------------Модифікація Segments----------------//
+
+    let newSegmentsFormat = {
+      labels: ["Економ", "Стандарт", "Комфорт", "Бізнес", "Преміум"],
+      values: [
+        Segments[0].econom,
+        Segments[0].standart,
+        Segments[0].comfort,
+        Segments[0].business,
+        Segments[0].premium,
+      ],
+    };
+
+    // -------------Модифікація Years----------------//
+
+    let newYearsFormat = {
+      labels: [
+        "2022",
+        "2021",
+        "2020",
+        "2019",
+        "2018",
+        "2017",
+        "2016",
+        "2015",
+        "2014",
+        "2013",
+        "2012",
+        "2011",
+        "2010",
+      ],
+      values: [
+        Years[0][2022],
+        Years[0][2021],
+        Years[0][2020],
+        Years[0][2019],
+        Years[0][2018],
+        Years[0][2017],
+        Years[0][2016],
+        Years[0][2015],
+        Years[0][2014],
+        Years[0][2013],
+        Years[0][2012],
+        Years[0][2011],
+        Years[0][2010],
+      ],
+    };
+
+    // -------------Модифікація Transmissions----------------//
+
+    let newTransmissionsFormat = {
+      labels: ["Механіка", "Автомат"],
+      values: [Transmissions[0].mechanics, Transmissions[0].automat],
+    };
+
+    // -------------Модифікація Term----------------//
+
+    let newTermFormat = {
+      labels: [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "10-15",
+        "15-20",
+        "20-25",
+        "25-30",
+        "30+",
+      ],
+      values: [
+        Term[0].day1,
+        Term[0].day2,
+        Term[0].day3,
+        Term[0].day4,
+        Term[0].day5,
+        Term[0].day6,
+        Term[0].day7,
+        Term[0].day8,
+        Term[0].day9,
+        Term[0].day10,
+        Term[0].day15,
+        Term[0].day20,
+        Term[0].day25,
+        Term[0].day30,
+        Term[0].day31,
+      ],
+    };
+
+    // -------------Модифікація Ages----------------//
+
+    let newAgesFormat = {
+      labels: [
+        "20",
+        "20-25",
+        "25-30",
+        "30-35",
+        "35-40",
+        "40-45",
+        "45-50",
+        "50-55",
+        "55-60",
+      ],
+      values: [
+        Ages[0][20],
+        Ages[0].F20T25,
+        Ages[0].F25T30,
+        Ages[0].F30T35,
+        Ages[0].F35T40,
+        Ages[0].F40T45,
+        Ages[0].F45T50,
+        Ages[0].F50T55,
+        Ages[0].F55T60,
+      ],
+    };
+
+    // -------------Модифікація ByCars----------------//
+
+    let ByCarsLabels = [];
+    let ByCarsValues = [];
+
+    for (let i = 0; i < ByCars.length; i++) {
+      ByCarsLabels.push(ByCars[i].name);
+      ByCarsValues.push(ByCars[i].amount);
+    }
+
+    let newByCarsFormat = {
+      labels: ByCarsLabels,
+      values: ByCarsValues,
+    };
+
     // -------------Кінець----------------//
 
     res.status(200).json({
       success: true,
       data: {
-        Days: Days,
-        Cities: Cities,
-        Segments: Segments,
-        Years: Years,
-        Transmissions: Transmissions,
-        ByCars: ByCars,
-        Term: Term,
-        Ages: Ages,
+        Days: newDaysFormat,
+        Cities: newCitiesFormat,
+        Segments: newSegmentsFormat,
+        Years: newYearsFormat,
+        Transmissions: newTransmissionsFormat,
+        ByCars: newByCarsFormat,
+        Term: newTermFormat,
+        Ages: newAgesFormat,
       },
       errors: null,
     });

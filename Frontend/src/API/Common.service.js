@@ -12,6 +12,9 @@ class CommonDataService {
   getAllCars() {
     return http.get(`/cars`);
   }
+  getAnalytics() {
+    return http.get(`/orders/analytics`);
+  }
   login(data) {
     return http.post("/auth", data);
   }
