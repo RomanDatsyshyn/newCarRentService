@@ -12,6 +12,13 @@ class CommonDataService {
   getAllCars() {
     return http.get(`/cars`);
   }
+  getUserData() {
+    return http.get(`/user`, {
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    });
+  }
   getAnalytics() {
     return http.get(`/orders/analytics`);
   }
