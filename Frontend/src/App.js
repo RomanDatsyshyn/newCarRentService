@@ -7,6 +7,9 @@ import ALogin from "./Pages/Auth/ALogin";
 import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
 import Profile from "./Pages/Profile";
+import ChangePassword from "./Pages/Auth/ChangePassword";
+import blockUserByID from "./Pages/Auth/blockUserByID";
+import unblockUserByID from "./Pages/Auth/unblockUserByID";
 import Cars from "./Pages/Cars/Cars";
 import Car from "./Pages/Cars/CarPage";
 import AddCar from "./Pages/Cars/AddCar";
@@ -33,6 +36,13 @@ const App = () => {
         <Route exact path="/admin-panel" component={ALogin} />
         <Switch>
           <PrivateRoute path="/profile" component={Profile} exact />
+          <PrivateRoute
+            path="/profile/changePassword"
+            component={ChangePassword}
+            exact
+          />
+          <PrivateRoute path="/blockUser" component={blockUserByID} exact />
+          <PrivateRoute path="/unblockUser" component={unblockUserByID} exact />
           <PrivateRoute path="/addcar" component={AddCar} exact />
           <PrivateRoute
             path="/car/:id/edit/carTown"

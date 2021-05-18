@@ -58,16 +58,6 @@ const NavBar = () => {
                   Автопарк
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link to="/" className="nav-link">
-                  Ціни
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/" className="nav-link">
-                  Умови
-                </Link>
-              </li>
             </ul>
             <div>
               {isUserLogged && (
@@ -94,6 +84,21 @@ const NavBar = () => {
                   <li className="nav-item">
                     <Link to="/" className="nav-link">
                       Аналітика
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/addcar" className="nav-link">
+                      Додати авто
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/blockUser" className="nav-link">
+                      Заблокувати юзера
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/unblockUser" className="nav-link">
+                      Розблокувати юзера
                     </Link>
                   </li>
                   <li className="nav-item">

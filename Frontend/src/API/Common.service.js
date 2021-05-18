@@ -74,6 +74,34 @@ class CommonDataService {
       },
     });
   }
+  changePassword(newPassword) {
+    return http.put(`/user/edit/`, newPassword, {
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    });
+  }
+  deleteUser() {
+    return http.delete(`/user/delete/`, {
+      headers: {
+        Authorization: localStorage.getItem("access_token"),
+      },
+    });
+  }
+  blockUser(id) {
+    return http.put(`/admin/users/${id}/block`, "", {
+      headers: {
+        Authorization: localStorage.getItem("admin_token"),
+      },
+    });
+  }
+  unblockUser(id) {
+    return http.put(`admin/users/${id}/unblock`, "", {
+      headers: {
+        Authorization: localStorage.getItem("admin_token"),
+      },
+    });
+  }
 }
 
 export default new CommonDataService();
