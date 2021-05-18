@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
       errors: null,
     });
   } catch (e) {
-    res.status(400).json({
+    res.json({
       success: false,
       data: e.controller || "getUser",
       errors: e.message,

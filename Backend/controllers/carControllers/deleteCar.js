@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     await Car.findByIdAndRemove(id);
     res.status(204).end();
   } catch (e) {
-    res.status(400).json({
+    res.json({
       success: false,
       data: e.controller || "deleteCar",
       errors: e.message,

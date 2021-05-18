@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
 
     res.status(204).end();
   } catch (e) {
-    res.status(400).json({
+    res.json({
       success: false,
       data: e.controller || "logoutUser",
       errors: e.message,

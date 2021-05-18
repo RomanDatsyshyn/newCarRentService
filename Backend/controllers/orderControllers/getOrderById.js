@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
       });
     }
   } catch (e) {
-    res.status(400).json({
+    res.json({
       success: false,
       data: e.controller || "GetOrderById",
       errors: e.message,
